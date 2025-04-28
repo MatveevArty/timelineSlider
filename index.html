@@ -4,11 +4,40 @@
     <title>Слайдер временной шкалы</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="timeline-slider.css">
+    <link rel="stylesheet" href="timeline-component/timeline-slider.css">
+    <link rel="stylesheet" href="date-settings.css">
 </head>
 <body style="background-color: #E5E5E5">
 
 <div id="my-timeline" style="margin-top: 150px"></div>
+
+<div class="container">
+    <div class="settings">
+        <div class="minmax-date">
+            <div class="min-date date-div">
+                <label for="min-date-input">Минимальная дата</label>
+                <input id="min-date-input" placeholder = 'YYYY-MM-DD' type="text">
+            </div>
+            
+            <div class="max-date date-div">
+                <label for="max-date-input">Максимальная дата</label>
+                <input id="max-date-input" placeholder = 'YYYY-MM-DD' type="text">
+            </div>
+        </div>
+        
+        <div class="startend-date">
+            <div class="start-date date-div">
+                <label for="start-date-input">Стартовая дата</label>
+                <input id="start-date-input" placeholder = 'YYYY-MM-DD' type="text">
+            </div>
+            
+            <div class="end-date date-div">
+                <label for="end-date-input">Конечная дата</label>
+                <input id="end-date-input" placeholder = 'YYYY-MM-DD' type="text">
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="main.js" type="module"></script>
 </body>

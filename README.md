@@ -9,8 +9,8 @@
 Адаптив реализован только на css.
 
 Для подключения модуля в другой проект и создания объекта TimelineSlider:
-<link rel="stylesheet" href="timeline-slider.css">
-<script src="timeline-slider.js" type="module"></script>
+<link rel="stylesheet" href="timeline-component/timeline-slider.css">
+<script src="timeline-component/timeline-slider.js" type="module"></script>
 
 new TimelineSlider({
     minDate: '2014-01-01',

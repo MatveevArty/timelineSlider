@@ -2,7 +2,9 @@ export class TimelineSlider {
     constructor(options) {
         this.sliderConstants(); // Настройка основных констант
         this.checkInputData(options); // Валидация пришедших данных
-        this.init(); // Основной движок
+        if (this.container) {
+            this.init(); // Основной движок
+        }
     }
 
     sliderConstants() {
@@ -40,8 +42,10 @@ export class TimelineSlider {
 
     checkInputData(options) {
         this.checkContainer(options); // Валидация контейнера
-        this.checkMinMaxDates(options); // Валидация мин/макс дат
-        this.checkStartEndDates(options); // Валидация выбранных дат начала и конца
+        if (this.container) {
+            this.checkMinMaxDates(options); // Валидация мин/макс дат
+            this.checkStartEndDates(options); // Валидация выбранных дат начала и конца
+        }
     }
 
     checkContainer(options) {
@@ -51,6 +55,8 @@ export class TimelineSlider {
             if (!this.container) {
                 alert('Неверный id для назначаемого блока вставки слайдера');
             }
+        } else {
+            alert('Не передан параметр containerId со значением id блока для вставки слайдера');
         }
     }
 
@@ -332,10 +338,11 @@ export class TimelineSlider {
                 const monthPosition = (monthOffset / totalMonths) * 100;
                 monthElement.style.left = `${monthPosition}%`;
                 track.appendChild(monthElement);
-                // Удаление первого года, если дата начинается не с января
-                if (year === startYear && monthOfStartYear > 0) {
-                    yearElement.remove();
-                }
+
+            }
+            // Удаление первого года, если дата начинается не с января
+            if (year === startYear && monthOfStartYear > 0 ||year === startYear && monthOfStartYear === 12) {
+                yearElement.remove();
             }
         }
     }
